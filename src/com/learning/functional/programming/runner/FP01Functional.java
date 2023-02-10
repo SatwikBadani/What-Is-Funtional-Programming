@@ -14,16 +14,16 @@ public class FP01Functional {
      */
     public static void main(String[] args){
         List<Integer> numbers = List.of(5,32,13,74,55,46);
-//        printAllNumbersInList01(numbers);
-//        printAllNumbersInList02(numbers);
-//        printAllEvenNumbersInList(numbers);
-//        printAllOddNumbersInList(numbers);
-//        printAllSquaresOfNumbersInList(numbers);
+        printAllNumbersInList01(numbers);
+        printAllNumbersInList02(numbers);
+        printAllEvenNumbersInList(numbers);
+        printAllOddNumbersInList(numbers);
+        printAllSquaresOfNumbersInList(numbers);
 
         List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF", "Azure", "Docker", "Kubernetes");
-//        printAllCoursesIndividually(courses);
-//        printAllCoursesContainsSpring(courses);
-//        printAllCoursesContainsMin4Letters(courses);
+        printAllCoursesIndividually(courses);
+        printAllCoursesContainsSpring(courses);
+        printAllCoursesContainsMin4Letters(courses);
         printLengthOfEachCourse(courses);
 
     }
