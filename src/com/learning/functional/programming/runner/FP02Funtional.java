@@ -6,6 +6,11 @@ import java.util.List;
 
 public class FP02Funtional {
 
+    /**
+     * Method to execute the main funtion
+     *
+     * @param args
+     */
     public static void main(String[] args){
         List<Integer> numbers = List.of(3,45,6,23,15,3,76,15,13,87);
         printSumOfNumbersInList(numbers);
@@ -99,8 +104,11 @@ public class FP02Funtional {
      * @param numbers
      */
     private static void printMinValueOfNumbersInList(List<Integer> numbers){
-        Integer min = numbers.stream().reduce(Integer.MAX_VALUE, (x, y) -> x > y ? y : x);
-        System.out.println("Printing min of all numbers in list using functional programming : "+min);
+        /*Using Lambda expression*/
+        Integer min1 = numbers.stream().reduce(Integer.MAX_VALUE, (x, y) -> x > y ? y : x);
+        /*Using Method reference*/
+        Integer min2 = numbers.stream().reduce(Integer.MAX_VALUE, Integer::min);
+        System.out.println("Printing min of all numbers in list using functional programming : "+min2   );
     }
 
     /**
@@ -109,8 +117,11 @@ public class FP02Funtional {
      * @param numbers
      */
     private static void printMaxValueOfNumbersInList(List<Integer> numbers){
-        Integer max = numbers.stream().reduce(Integer.MIN_VALUE, (x, y) -> x > y ? x : y);
-        System.out.println("Printing max of all numbers in list using functional programming : "+max);
+        /*Using Lambda expression*/
+        Integer max1 = numbers.stream().reduce(Integer.MIN_VALUE, (x, y) -> x > y ? x : y);
+        /*Using Method reference*/
+        Integer max2 = numbers.stream().reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println("Printing max of all numbers in list using functional programming : "+max2);
     }
 
     /**
@@ -120,7 +131,7 @@ public class FP02Funtional {
      */
     private static void printSumOfNumbersInList(List<Integer> numbers){
         /*Using Method Reference*/
-        Integer sum1 = numbers.stream().reduce(0, Integer::max);
+        Integer sum1 = numbers.stream().reduce(0, Integer::sum);
         /*Using Lambda Expression*/
         Integer sum2 = numbers.stream().reduce(0, (x,y) -> x + y);
         System.out.println("Printing sum of all numbers in list using functional programming : "+sum2);
