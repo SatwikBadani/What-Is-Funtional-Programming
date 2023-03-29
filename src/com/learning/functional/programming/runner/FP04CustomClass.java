@@ -127,7 +127,7 @@ public class FP04CustomClass {
      * @param courses
      */
     private static void examplesForMatches(List<Course> courses) {
-        Predicate<Course> coursePredicate = course -> 90 <= course.getRating();
+        Predicate<Course> coursePredicate = getCoursePredicate(90);
         boolean allCoursesMatchPredicate = courses.stream().allMatch(coursePredicate);
         boolean anyCourseMatchPredicate = courses.stream().anyMatch(coursePredicate);
         boolean noneCoursesMatchPredicate = courses.stream().noneMatch(coursePredicate);
@@ -135,6 +135,16 @@ public class FP04CustomClass {
         System.out.println("Is there a match for all courses in the list with the given predicate : "+allCoursesMatchPredicate);
         System.out.println("Is there a match for any course in the list with the given predicate : "+anyCourseMatchPredicate);
         System.out.println("Is there a match for none courses in the list with the given predicate : "+noneCoursesMatchPredicate);
+    }
+
+    /**
+     * Method which returns another method ===> this is called as higher order function
+     *
+     * @param cutOffRating
+     * @return
+     */
+    private static Predicate<Course> getCoursePredicate(int cutOffRating) {
+        return course -> cutOffRating <= course.getRating();
     }
 
 }
